@@ -133,6 +133,6 @@ contract Teacher {
     }
 
    function subscoreTeacher(address _score,uint iscore) external {
-        return IScore(_score).Sub();
+        IScore(_score).Sub();
     }
 }
