@@ -109,13 +109,19 @@ contract Score {
      
     }
 
+    function Sub() external onlyowner{
+        Studentscore[msg.sender]-=1;
+        newscore = Studentscore[msg.sender];
+        assert(newscore < 100);
+    }
+
 }
 
 
 
 interface IScore {
     function Add() external;
-    function Subscore() external;
+    function Sub() external;
 }
 
 
@@ -126,7 +132,7 @@ contract Teacher {
         
     }
 
-   // function subscoreTeacher(address _score,uint iscore) external {
-        //return IScore(_score).Subscore();
-    //}
+   function subscoreTeacher(address _score,uint iscore) external {
+        return IScore(_score).Sub();
+    }
 }
